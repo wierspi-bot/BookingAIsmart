@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Booking AI — Автоматизація для Будь-якого Сервісного Бізнесу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07060f; --surface: #0f0d1a; --card: #13111f;
+    --border: rgba(138,92,255,0.15); --accent: #8a5cff; --accent2: #b08aff;
+    --accent-glow: rgba(138,92,255,0.35); --text: #f0ecff; --muted: #8a84a8;
+    --green: #3ddc84; --gold: #f5c842;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.4}
+  .blob{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+  .blob-1{width:600px;height:600px;background:rgba(100,40,255,0.12);top:-200px;right:-100px}
+  .blob-2{width:400px;height:400px;background:rgba(138,92,255,0.08);bottom:30%;left:-150px}
+  .blob-3{width:300px;height:300px;background:rgba(61,220,132,0.06);bottom:0;right:20%}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,6,15,0.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px}
+  .logo span{color:var(--accent2)}
+  .nav-cta{background:var(--accent);color:white;border:none;padding:10px 24px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;text-decoration:none}
+  .nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+  section{position:relative;z-index:1}
+  .container{max-width:1100px;margin:0 auto;padding:0 32px}
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 32px 80px;max-width:1100px;margin:0 auto}
+  .hero-content{max-width:680px}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(138,92,255,0.12);border:1px solid var(--border);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:500;color:var(--accent2);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:32px;animation:fadeUp 0.6s ease both}
+  .pulse{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+  h1{font-family:'Syne',sans-serif;font-size:clamp(38px,6vw,68px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px;animation:fadeUp 0.6s 0.1s ease both}
+  h1 .highlight{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,#e0d0ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero-sub{font-size:18px;color:var(--muted);font-weight:300;max-width:520px;margin-bottom:40px;line-height:1.7;animation:fadeUp 0.6s 0.2s ease both}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 0.6s 0.3s ease both}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#6030e0);color:white;border:none;padding:16px 32px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;box-shadow:0 0 40px var(--accent-glow)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 60px var(--accent-glow)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);padding:16px 32px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:16px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+  .btn-ghost:hover{color:var(--text);border-color:var(--accent)}
+  .hero-stats{display:flex;gap:40px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border);animation:fadeUp 0.6s 0.4s ease both}
+  .stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px}
+  .stat-num span{color:var(--accent2)}
+  .stat-label{font-size:13px;color:var(--muted);margin-top:2px}
+  .section-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  h2{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+  .problem-section{padding:100px 0;background:linear-gradient(180deg,transparent,rgba(138,92,255,0.04),transparent)}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  .problem-item{background:var(--card);padding:36px;transition:background 0.3s}
+  .problem-item:hover{background:rgba(138,92,255,0.06)}
+  .problem-item:nth-child(odd){border-right:1px solid var(--border)}
+  .problem-item:nth-child(1),.problem-item:nth-child(2){border-bottom:1px solid var(--border)}
+  .problem-icon{font-size:28px;margin-bottom:16px}
+  .problem-item h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px}
+  .problem-item p{font-size:14px;color:var(--muted);line-height:1.6}
+  .features-section{padding:100px 0}
+  .features-header{text-align:center;margin-bottom:70px}
+  .features-header p{color:var(--muted);font-size:17px;max-width:500px;margin:12px auto 0}
+  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feature-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden}
+  .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity 0.3s}
+  .feature-card:hover{border-color:rgba(138,92,255,0.4);transform:translateY(-4px)}
+  .feature-card:hover::before{opacity:1}
+  .feature-icon{width:48px;height:48px;background:rgba(138,92,255,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+  .feature-card h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:10px}
+  .feature-card p{font-size:14px;color:var(--muted);line-height:1.65}
+
+  /* NICHES */
+  .niches-section{padding:100px 0;background:linear-gradient(180deg,transparent,rgba(138,92,255,0.05),transparent)}
+  .niches-header{text-align:center;margin-bottom:70px}
+  .niches-header p{color:var(--muted);font-size:17px;max-width:560px;margin:12px auto 0;line-height:1.7}
+  .niches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .niche-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s}
+  .niche-card:hover{transform:translateY(-6px);border-color:rgba(138,92,255,0.4);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+  .niche-visual{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .niche-visual .big-emoji{font-size:68px;position:relative;z-index:1;filter:drop-shadow(0 0 20px rgba(138,92,255,0.5));transition:transform 0.3s}
+  .niche-card:hover .big-emoji{transform:scale(1.15)}
+  .niche-visual::before{content:'';position:absolute;inset:0;opacity:0.8}
+  .niche-car .niche-visual{background:linear-gradient(135deg,#0a0820,#1a0a3a)}
+  .niche-car .niche-visual::before{background:radial-gradient(ellipse at center,rgba(138,92,255,0.3),transparent 70%)}
+  .niche-barber .niche-visual{background:linear-gradient(135deg,#0a1a0a,#0a2a1a)}
+  .niche-barber .niche-visual::before{background:radial-gradient(ellipse at center,rgba(61,220,132,0.25),transparent 70%)}
+  .niche-beauty .niche-visual{background:linear-gradient(135deg,#1a0a1a,#2a0a2a)}
+  .niche-beauty .niche-visual::before{background:radial-gradient(ellipse at center,rgba(255,100,200,0.25),transparent 70%)}
+  .niche-dental .niche-visual{background:linear-gradient(135deg,#0a1a2a,#0a1a3a)}
+  .niche-dental .niche-visual::before{background:radial-gradient(ellipse at center,rgba(100,200,255,0.25),transparent 70%)}
+  .niche-fitness .niche-visual{background:linear-gradient(135deg,#1a0a00,#2a1500)}
+  .niche-fitness .niche-visual::before{background:radial-gradient(ellipse at center,rgba(255,150,50,0.25),transparent 70%)}
+  .niche-hotel .niche-visual{background:linear-gradient(135deg,#0a0a1a,#1a1a0a)}
+  .niche-hotel .niche-visual::before{background:radial-gradient(ellipse at center,rgba(245,200,66,0.2),transparent 70%)}
+  .niche-body{padding:20px 24px 24px}
+  .niche-tag{display:inline-block;background:rgba(138,92,255,0.12);border:1px solid var(--border);color:var(--accent2);font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:10px}
+  .niche-body h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+  .niche-body p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+  .niche-results{display:flex;gap:20px;margin-bottom:12px}
+  .niche-result-num{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--green)}
+  .niche-result-label{font-size:10px;color:var(--muted)}
+  .niche-chat{background:rgba(0,0,0,0.3);border-radius:10px;padding:12px}
+  .niche-msg{font-size:12px;padding:7px 11px;border-radius:10px;margin-bottom:6px;max-width:92%}
+  .niche-msg:last-child{margin-bottom:0}
+  .niche-msg-user{background:var(--accent);color:white;margin-left:auto;border-bottom-right-radius:3px}
+  .niche-msg-bot{background:rgba(138,92,255,0.1);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:3px}
+
+  .demo-section{padding:100px 0}
+  .demo-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
+  .demo-text h2{margin-bottom:16px}
+  .demo-text p{color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:24px}
+  .demo-check{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text);margin-bottom:12px}
+  .demo-check .check{color:var(--green);font-size:16px}
+  .chat-window{background:#0a0914;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+  .chat-header{background:var(--card);padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+  .chat-avatar{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),#3d0099);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .chat-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700}
+  .chat-status{font-size:11px;color:var(--green)}
+  .chat-body{padding:20px;display:flex;flex-direction:column;gap:12px;min-height:300px}
+  .msg{max-width:82%;padding:12px 16px;border-radius:16px;font-size:13px;line-height:1.5;animation:msgIn 0.4s ease both}
+  .msg-user{background:var(--accent);color:white;align-self:flex-end;border-bottom-right-radius:4px}
+  .msg-bot{background:var(--card);border:1px solid var(--border);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
+  .msg:nth-child(1){animation-delay:0.3s}.msg:nth-child(2){animation-delay:0.8s}.msg:nth-child(3){animation-delay:1.3s}.msg:nth-child(4){animation-delay:1.8s}.msg:nth-child(5){animation-delay:2.3s}
+  @keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .demo2-section{padding:60px 0 100px}
+  .demo2-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
+  .crm-section{padding:100px 0;background:linear-gradient(180deg,transparent,rgba(13,11,26,0.8),transparent)}
+  .crm-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
+  .crm-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+  .crm-header{background:rgba(138,92,255,0.1);padding:14px 20px;border-bottom:1px solid var(--border);font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
+  .crm-table{width:100%;border-collapse:collapse}
+  .crm-table th{background:rgba(138,92,255,0.08);padding:10px 14px;font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--border)}
+  .crm-table td{padding:10px 14px;font-size:13px;color:var(--text);border-bottom:1px solid rgba(138,92,255,0.07)}
+  .crm-table tr:last-child td{border-bottom:none}
+  .crm-table tr:hover td{background:rgba(138,92,255,0.04)}
+  .status-done{color:var(--green);font-size:12px;font-weight:600}
+  .notif-card{background:var(--card);border:1px solid rgba(61,220,132,0.2);border-radius:16px;padding:20px 24px;margin-top:20px;display:flex;gap:16px;align-items:flex-start}
+  .notif-icon{font-size:28px;flex-shrink:0}
+  .notif-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--green);margin-bottom:4px}
+  .notif-body{font-size:13px;color:var(--muted);line-height:1.5}
+  .how-section{padding:100px 0}
+  .steps{display:flex;flex-direction:column;margin-top:60px;position:relative}
+  .steps::before{content:'';position:absolute;left:23px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent),rgba(138,92,255,0.1))}
+  .step{display:flex;gap:32px;padding:32px 0}
+  .step-num{width:48px;height:48px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:16px;flex-shrink:0;position:relative;z-index:1;box-shadow:0 0 24px var(--accent-glow)}
+  .step-content{padding-top:8px}
+  .step-content h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px}
+  .step-content p{color:var(--muted);font-size:15px;line-height:1.6;max-width:500px}
+  .reviews-section{padding:100px 0}
+  .reviews-header{text-align:center;margin-bottom:60px}
+  .reviews-header p{color:var(--muted);font-size:17px;max-width:420px;margin:12px auto 0}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;transition:all 0.3s;position:relative}
+  .review-card:hover{border-color:rgba(138,92,255,0.3);transform:translateY(-4px)}
+  .review-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:16px}
+  .review-text{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:20px;font-style:italic}
+  .review-author{display:flex;align-items:center;gap:12px}
+  .review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#3d0099);display:flex;align-items:center;justify-content:center;font-size:18px}
+  .review-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700}
+  .review-role{font-size:12px;color:var(--muted)}
+  .verified-badge{position:absolute;top:16px;right:16px;background:rgba(61,220,132,0.12);border:1px solid rgba(61,220,132,0.2);color:var(--green);font-size:10px;font-weight:600;letter-spacing:0.5px;padding:3px 10px;border-radius:100px}
+  .pricing-section{padding:100px 0}
+  .pricing-header{text-align:center;margin-bottom:60px}
+  .pricing-header p{color:var(--muted);font-size:17px;max-width:420px;margin:12px auto 0}
+  .pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:0 auto}
+  .pricing-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;position:relative;transition:all 0.3s}
+  .pricing-card.featured{border-color:var(--accent);background:linear-gradient(135deg,rgba(138,92,255,0.08),var(--card));box-shadow:0 0 60px rgba(138,92,255,0.15)}
+  .featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:white;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 16px;border-radius:100px}
+  .pricing-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .pricing-price{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;letter-spacing:-2px;margin-bottom:4px}
+  .pricing-price span{font-size:20px;color:var(--muted);font-weight:400}
+  .pricing-sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+  .pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+  .pricing-features li{font-size:14px;display:flex;gap:10px;align-items:flex-start}
+  .pricing-features li::before{content:'✓';color:var(--green);font-weight:600;flex-shrink:0}
+  .early-section{padding:80px 0}
+  .early-card{background:linear-gradient(135deg,rgba(138,92,255,0.1),rgba(61,220,132,0.05));border:1px solid rgba(138,92,255,0.3);border-radius:24px;padding:60px;text-align:center;position:relative;overflow:hidden}
+  .early-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(138,92,255,0.1),transparent 60%);pointer-events:none}
+  .early-tag{display:inline-block;background:rgba(61,220,132,0.15);border:1px solid rgba(61,220,132,0.3);color:var(--green);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}
+  .early-card h2{font-size:clamp(26px,3vw,38px);margin-bottom:16px}
+  .early-card p{color:var(--muted);font-size:17px;max-width:480px;margin:0 auto 32px;line-height:1.7}
+  .early-price{display:flex;justify-content:center;gap:40px;margin-bottom:40px;flex-wrap:wrap}
+  .price-item{text-align:center}
+  .price-old{font-size:18px;color:var(--muted);text-decoration:line-through}
+  .price-new{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;letter-spacing:-2px}
+  .price-label{font-size:12px;color:var(--muted)}
+  .divider{width:1px;background:var(--border)}
+  .cta-section{padding:100px 0 60px;text-align:center}
+  .cta-section h2{margin-bottom:16px}
+  .cta-section p{color:var(--muted);font-size:17px;max-width:440px;margin:0 auto 40px}
+  .cta-contact{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:32px}
+  .contact-chip{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 20px;font-size:14px;color:var(--muted);text-decoration:none;transition:all 0.2s}
+  .contact-chip:hover{border-color:var(--accent);color:var(--text)}
+  footer{padding:40px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:13px}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @media(max-width:768px){
+    nav{padding:16px 20px}.hero{padding:100px 20px 60px}.container{padding:0 20px}
+    h1{font-size:36px;letter-spacing:-1.5px}.hero-stats{gap:24px;flex-wrap:wrap}
+    .problem-grid,.features-grid,.niches-grid,.demo-wrapper,.demo2-wrapper,.crm-wrapper,.reviews-grid,.pricing-cards{grid-template-columns:1fr}
+    .problem-item:nth-child(odd){border-right:none}.early-card{padding:40px 24px}
+    .early-price{gap:24px}.divider{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<nav>
+  <div class="logo">Smart<span>Booking</span> AI</div>
+  <a href="https://wa.me/380669667560" target="_blank" class="nav-cta">Отримати демо →</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><div class="pulse"></div>AI Автоматизація для Будь-якого Сервісного Бізнесу</div>
+    <h1>Перетворюй пропущені чати на <span class="highlight">Гарантований Дохід</span></h1>
+    <p class="hero-sub">Твій AI-асистент працює 24/7 — приймає записи, відповідає на питання та синхронізує календар. Поки ти спиш, він заробляє.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/380669667560" target="_blank" class="btn-primary">Отримати безкоштовне демо</a>
+      <a href="#how" class="btn-ghost">Як це працює</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">24<span>/7</span></div><div class="stat-label">Завжди онлайн</div></div>
+      <div><div class="stat-num">5–10<span>x</span></div><div class="stat-label">Більше записів</div></div>
+      <div><div class="stat-num">0</div><div class="stat-label">Пропущених клієнтів</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="problem-section">
+  <div class="container">
+    <div class="section-label">Проблема</div>
+    <h2>Ти втрачаєш клієнтів кожної ночі</h2>
+    <div class="problem-grid">
+      <div class="problem-item"><div class="problem-icon">🌙</div><h3>Пропущені повідомлення вночі</h3><p>Клієнт пише о 23:00. Ти бачиш о 9:00. Він вже записався в іншому місці.</p></div>
+      <div class="problem-item"><div class="problem-icon">📱</div><h3>Розкидані по каналах</h3><p>Instagram, WhatsApp, Telegram — ти не можеш бути всюди. Повідомлення губляться.</p></div>
+      <div class="problem-item"><div class="problem-icon">🗓️</div><h3>Ручний запис = помилки</h3><p>Подвійні бронювання, забуті записи, no-show — все через ручне управління.</p></div>
+      <div class="problem-item"><div class="problem-icon">💸</div><h3>Гроші йдуть в адміністрування</h3><p>Персонал витрачає години на однакові питання замість реальної роботи.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="container">
+    <div class="features-header">
+      <div class="section-label">Рішення</div>
+      <h2>Один AI. Всі канали. Нуль пропущених лідів.</h2>
+      <p>Smart Booking AI виконує всю роботу адміністратора автоматично.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">🤖</div><h3>AI-Консультант 24/7</h3><p>Бот діє як цифровий консультант — пояснює послуги, ціни та пакети миттєво.</p></div>
+      <div class="feature-card"><div class="feature-icon">💬</div><h3>Запис на природній мові</h3><p>"Запиши мене на 15 лютого о 13:00, BMW Sedan, Іван" — одне повідомлення. Готово.</p></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><h3>Синхронізація з Google Calendar</h3><p>Кожне бронювання миттєво в календарі. Без подвійних записів. Без ручного введення.</p></div>
+      <div class="feature-card"><div class="feature-icon">📊</div><h3>Автоматичний CRM</h3><p>Ім'я, телефон, послуга — все логується в Google Sheets автоматично.</p></div>
+      <div class="feature-card"><div class="feature-icon">🔔</div><h3>Миттєві сповіщення власнику</h3><p>Кожне нове бронювання — моментальне повідомлення тобі. Ти завжди в курсі.</p></div>
+      <div class="feature-card"><div class="feature-icon">🌐</div><h3>Омніканальна присутність</h3><p>Telegram, WhatsApp, Instagram — один бот, всі платформи одночасно.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHES -->
+<section class="niches-section">
+  <div class="container">
+    <div class="niches-header">
+      <div class="section-label">Підходить будь-якому бізнесу</div>
+      <h2>Один AI — необмежені ніші</h2>
+      <p>Неважливо чим займається твій бізнес — якщо у тебе є клієнти і записи, ми автоматизуємо це за 1 день.</p>
+    </div>
+    <div class="niches-grid">
+      <div class="niche-card niche-car">
+        <div class="niche-visual"><div class="big-emoji">🚗</div></div>
+        <div class="niche-body">
+          <div class="niche-tag">Автомийка / Детейлінг</div>
+          <h3>Автосервіс</h3>
+          <p>Бот приймає записи на миття, полірування, хімчистку — 24/7 без адміністратора.</p>
+          <div class="niche-results"><div class="niche-result"><div class="niche-result-num">+40%</div><div class="niche-result-label">Більше записів</div></div><div class="niche-result"><div class="niche-result-num">0</div><div class="niche-result-label">Пропущених</div></div></div>
+          <div class="niche-chat">
+            <div class="niche-msg niche-msg-user">Запиши на суботу о 10:00, стандарт, Tesla</div>
+            <div class="niche-msg niche-msg-bot">✅ Субота 10:00 — Tesla, стандарт. Підтверджую!</div>
+          </div>
+        </div>
+      </div>
+      <div class="niche-card niche-barber">
+        <div class="niche-visual"><div class="big-emoji">✂️</div></div>
+        <div class="niche-body">
+          <div class="niche-tag">Барбершоп / Перукарня</div>
+          <h3>Барбершоп</h3>
+          <p>Клієнти записуються до майстра в будь-який час — бот знає розклад і вільні слоти.</p>
+          <div class="niche-results"><div class="niche-result"><div class="niche-result-num">+35%</div><div class="niche-result-label">Завантаженість</div></div><div class="niche-result"><div class="niche-result-num">-80%</div><div class="niche-result-label">No-show</div></div></div>
+          <div class="niche-chat">
+            <div class="niche-msg niche-msg-user">Є місце в п'ятницю до Максима?</div>
+            <div class="niche-msg niche-msg-bot">✅ П'ятниця: 14:00 або 16:30. Який зручний?</div>
+          </div>
+        </div>
+      </div>
+      <div class="niche-card niche-beauty">
+        <div class="niche-visual"><div class="big-emoji">💅</div></div>
+        <div class="niche-body">
+          <div class="niche-tag">Нігті / Брови / Вії</div>
+          <h3>Б'юті-студія</h3>
+          <p>Бот консультує по послугах, цінах і майстрах — і одразу записує без дзвінків.</p>
+          <div class="niche-results"><div class="niche-result"><div class="niche-result-num">+50%</div><div class="niche-result-label">Конверсія</div></div><div class="niche-result"><div class="niche-result-num">3 год</div><div class="niche-result-label">Зекономлено/день</div></div></div>
+          <div class="niche-chat">
+            <div class="niche-msg niche-msg-user">Скільки манікюр з гель-лаком?</div>
+            <div class="niche-msg niche-msg-bot">💅 Манікюр + гель-лак — 650 грн. Записати?</div>
+          </div>
+        </div>
+      </div>
+      <div class="niche-card niche-dental">
+        <div class="niche-visual"><div class="big-emoji">🦷</div></div>
+        <div class="niche-body">
+          <div class="niche-tag">Стоматологія / Медицина</div>
+          <h3>Медичний центр</h3>
+          <p>Пацієнти записуються до лікаря 24/7, отримують нагадування автоматично.</p>
+          <div class="niche-results"><div class="niche-result"><div class="niche-result-num">-60%</div><div class="niche-result-label">Скасувань</div></div><div class="niche-result"><div class="niche-result-num">+45%</div><div class="niche-result-label">Нових пацієнтів</div></div></div>
+          <div class="niche-chat">
+            <div class="niche-msg niche-msg-user">Хочу записатися на чистку зубів</div>
+            <div class="niche-msg niche-msg-bot">🦷 Середа 11:00 — є місце. Підходить?</div>
+          </div>
+        </div>
+      </div>
+      <div class="niche-card niche-fitness">
+        <div class="niche-visual"><div class="big-emoji">💪</div></div>
+        <div class="niche-body">
+          <div class="niche-tag">Фітнес / Йога / Масаж</div>
+          <h3>Фітнес-студія</h3>
+          <p>Бот записує на тренування і групові заняття — і нагадує за годину до візиту.</p>
+          <div class="niche-results"><div class="niche-result"><div class="niche-result-num">+55%</div><div class="niche-result-label">Повторні візити</div></div><div class="niche-result"><div class="niche-result-num">24/7</div><div class="niche-result-label">Запис онлайн</div></div></div>
+          <div class="niche-chat">
+            <div class="niche-msg niche-msg-user">Є місця на йогу в неділю вранці?</div>
+            <div class="niche-msg niche-msg-bot">🧘 Неділя 9:00 — є 3 місця! Записую?</div>
+          </div>
+        </div>
+      </div>
+      <div class="niche-card niche-hotel">
+        <div class="niche-visual"><div class="big-emoji">🏨</div></div>
+        <div class="niche-body">
+          <div class="niche-tag">Готель / Оренда / Ресторан</div>
+          <h3>Готельний бізнес</h3>
+          <p>Гості бронюють номери і послуги через чат — без дзвінків і форм на сайті.</p>
+          <div class="niche-results"><div class="niche-result"><div class="niche-result-num">+30%</div><div class="niche-result-label">Бронювань</div></div><div class="niche-result"><div class="niche-result-num">-90%</div><div class="niche-result-label">Ручна робота</div></div></div>
+          <div class="niche-chat">
+            <div class="niche-msg niche-msg-user">Є номер на 2 особи з 20 по 23 березня?</div>
+            <div class="niche-msg niche-msg-bot">🏨 Двомісний — 2400 грн/ніч. Бронювати?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo-section">
+  <div class="container">
+    <div class="demo-wrapper">
+      <div class="demo-text">
+        <div class="section-label">Живий приклад</div>
+        <h2>Від першого повідомлення до підтвердженого запису</h2>
+        <p>Клієнт просто пише одне речення — бот сам витягує всі деталі: послугу, ім'я, телефон, час і авто.</p>
+        <div class="demo-check"><span class="check">✓</span> Розуміє природну мову</div>
+        <div class="demo-check"><span class="check">✓</span> Витягує всі дані автоматично</div>
+        <div class="demo-check"><span class="check">✓</span> Підтверджує і логує миттєво</div>
+        <div class="demo-check"><span class="check">✓</span> Працює на будь-якій мові</div>
+      </div>
+      <div class="chat-window">
+        <div class="chat-header"><div class="chat-avatar">🚗</div><div><div class="chat-name">Автомийка AI</div><div class="chat-status">● Онлайн зараз</div></div></div>
+        <div class="chat-body">
+          <div class="msg msg-user">Привіт, які послуги є?</div>
+          <div class="msg msg-bot">Привіт! 👋<br><br>🚗 Стандартне миття — 700 грн<br>✨ Комплексне — 1200 грн<br>🛡️ Антидощ — 250 грн<br>💎 Полірування — 450 грн<br><br>Записатися?</div>
+          <div class="msg msg-user">Запиши мене 15 лютого о 13:00, стандарт, BMW Sedan. Іван, +380669667560</div>
+          <div class="msg msg-bot">✅ Послуга: Стандартне миття<br>👤 Іван · +380669667560<br>🚗 BMW Sedan · 15 лют, 13:00<br><br>Все вірно?</div>
+          <div class="msg msg-user">Так!</div>
+          <div class="msg msg-bot">🎉 Підтверджено! Чекаємо 15 лютого о 13:00, Іване!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo2-section">
+  <div class="container">
+    <div class="demo2-wrapper">
+      <div class="chat-window">
+        <div class="chat-header"><div class="chat-avatar">💡</div><div><div class="chat-name">Консультант AI</div><div class="chat-status">● Відповідає миттєво</div></div></div>
+        <div class="chat-body">
+          <div class="msg msg-user">Що таке кондиціонер для шкіри?</div>
+          <div class="msg msg-bot">Кондиціонер для шкіри — засіб для догляду за шкіряним салоном авто. 🛡️ Зволожує і захищає від висихання та тріщин. Важливо для збереження сидінь.<br><br>Хочеш записатися?</div>
+          <div class="msg msg-user">Скільки коштує?</div>
+          <div class="msg msg-bot">💎 Обробка шкіряного салону — 450 грн (~40 хв). Записати тебе?</div>
+        </div>
+      </div>
+      <div class="demo-text">
+        <div class="section-label">Розумна консультація</div>
+        <h2>Бот навчає — і одразу продає</h2>
+        <p>AI пояснює послуги як експерт, підвищує середній чек і конвертує питання в записи. Без участі персоналу.</p>
+        <div class="demo-check"><span class="check">✓</span> Відповідає на будь-яке питання миттєво</div>
+        <div class="demo-check"><span class="check">✓</span> Підвищує середній чек через апсел</div>
+        <div class="demo-check"><span class="check">✓</span> Не потребує навчання персоналу</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="crm-section">
+  <div class="container">
+    <div class="crm-wrapper">
+      <div>
+        <div class="section-label">Централізовані операції</div>
+        <h2>Вся база клієнтів будується автоматично</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:24px;">Кожне бронювання логується в Google Sheets — ім'я, телефон, послуга, час. Твоя CRM оновлюється сама.</p>
+        <div class="demo-check"><span class="check">✓</span> Синхронізація з Google Calendar в реальному часі</div>
+        <div class="demo-check"><span class="check">✓</span> Централізована база даних клієнтів</div>
+        <div class="demo-check"><span class="check">✓</span> Сумісно з будь-якою CRM через API</div>
+        <div class="notif-card"><div class="notif-icon">🔔</div><div><div class="notif-title">✅ Новий запис!</div><div class="notif-body">Клієнт: Іван · +380665557540<br>Послуга: Стандартне миття · BMW Sedan<br>Час: 15 лютого, 18:00–19:00</div></div></div>
+      </div>
+      <div class="crm-visual">
+        <div class="crm-header">📊 Google Sheets — Записи клієнтів</div>
+        <table class="crm-table">
+          <thead><tr><th>Дата</th><th>Клієнт</th><th>Авто</th><th>Послуга</th><th>Статус</th></tr></thead>
+          <tbody>
+            <tr><td>15.02</td><td>Іван</td><td>BMW Sedan</td><td>Стандарт</td><td class="status-done">✓ Підтв.</td></tr>
+            <tr><td>15.02</td><td>Марія</td><td>Toyota RAV4</td><td>Комплекс</td><td class="status-done">✓ Підтв.</td></tr>
+            <tr><td>16.02</td><td>Олег</td><td>VW Golf</td><td>Антидощ</td><td class="status-done">✓ Підтв.</td></tr>
+            <tr><td>16.02</td><td>Катя</td><td>Audi A3</td><td>Стандарт</td><td class="status-done">✓ Підтв.</td></tr>
+            <tr><td>17.02</td><td>Дмитро</td><td>Mercedes C</td><td>Полірування</td><td class="status-done">✓ Підтв.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="section-label">Як це працює</div>
+    <h2>4 кроки від першого повідомлення до запису</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Клієнт пише повідомлення</h3><p>На будь-якій платформі — Telegram, WhatsApp або Instagram. Вдень чи вночі. Своїми словами.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>AI розуміє і відповідає</h3><p>Асистент визначає послугу, збирає ім'я, телефон, бажаний час — в одному діалозі.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Запис підтверджено</h3><p>Клієнт отримує підтвердження. Ти — сповіщення. Google Calendar оновлено. Sheets залоговано.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>Ти просто працюєш</h3><p>Ніякого адміну. Ніяких погонь за повідомленнями. Просто повний розклад і задоволені клієнти.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-section">
+  <div class="container">
+    <div class="reviews-header">
+      <div class="section-label">Відгуки клієнтів</div>
+      <h2>Що кажуть власники бізнесу</h2>
+      <p>Реальні результати від перших клієнтів Smart Booking AI.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="verified-badge">✓ Верифіковано</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Раніше я втрачав по 7–10 записів на тиждень — просто тому що спав або був зайнятий. Тепер бот відповідає цілодобово. Окупилося за перший тиждень."</p>
+        <div class="review-author"><div class="review-avatar">🚗</div><div><div class="review-name">Олексій Коваль</div><div class="review-role">Власник автомийки, Київ</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="verified-badge">✓ Верифіковано</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Найкраща інвестиція цього року. Персонал не витрачає час на однакові питання — бот відповідає миттєво. А Google Sheets заповнюється сама. Це магія."</p>
+        <div class="review-author"><div class="review-avatar">✂️</div><div><div class="review-name">Марина Лисенко</div><div class="review-role">Власниця барбершопу, Харків</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="verified-badge">✓ Верифіковано</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Підключили за один день. На третій день прийшов клієнт, якого записав бот о 2 ночі. Я не прокинувся — а запис вже був у календарі. Неймовірно."</p>
+        <div class="review-author"><div class="review-avatar">💅</div><div><div class="review-name">Аліна Романова</div><div class="review-role">Власниця б'юті-студії, Одеса</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-label">Ціни</div>
+      <h2>Просто. Прозоро. ROI з першого тижня.</h2>
+      <p>Окупаєш інвестицію за перший тиждень лише з записів, які раніше губилися.</p>
+    </div>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="pricing-name">Підключення</div>
+        <div class="pricing-price">$300</div>
+        <div class="pricing-sub">Одноразове налаштування</div>
+        <ul class="pricing-features">
+          <li>Повне налаштування AI-бота</li>
+          <li>Інтеграція з Google Calendar</li>
+          <li>Налаштування CRM в Google Sheets</li>
+          <li>Підключення всіх каналів</li>
+          <li>Кастомізація під твої послуги і ціни</li>
+        </ul>
+        <a href="https://wa.me/380669667560" target="_blank" class="btn-ghost" style="width:100%;text-align:center;display:block;">Почати</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="featured-badge">Найпопулярніше</div>
+        <div class="pricing-name">Щомісячно</div>
+        <div class="pricing-price">$100<span>/міс</span></div>
+        <div class="pricing-sub">Підтримка і обслуговування</div>
+        <ul class="pricing-features">
+          <li>Робота бота 24/7</li>
+          <li>Оновлення і покращення</li>
+          <li>Зміна послуг у будь-який час</li>
+          <li>Пріоритетна підтримка</li>
+          <li>Щомісячний звіт по ефективності</li>
+        </ul>
+        <a href="https://wa.me/380669667560" target="_blank" class="btn-primary" style="width:100%;text-align:center;display:block;">Почати</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="early-section">
+  <div class="container">
+    <div class="early-card">
+      <div class="early-tag">⚡ Лімітовано — Лише перші 2 клієнти</div>
+      <h2>Пропозиція для ранніх користувачів</h2>
+      <p>Будь серед перших бізнесів, які автоматизуються зі Smart Booking AI. Знижена ціна в обмін на чесний відгук і кейс.</p>
+      <div class="early-price">
+        <div class="price-item"><div class="price-old">$300</div><div class="price-new">$200</div><div class="price-label">Підключення (одноразово)</div></div>
+        <div class="divider"></div>
+        <div class="price-item"><div class="price-old">$100/міс</div><div class="price-new">$80</div><div class="price-label">Щомісячно</div></div>
+      </div>
+      <a href="https://wa.me/380669667560" target="_blank" class="btn-primary">Зайняти місце раннього користувача →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="section-label">Зв'яжись з нами</div>
+    <h2>Готовий автоматизувати своє зростання?</h2>
+    <p>Отримай індивідуальне демо для свого бізнесу. Покажу як це працює саме для тебе — за 10 хвилин.</p>
+    <a href="https://wa.me/380669667560" target="_blank" class="btn-primary">Замовити безкоштовне демо</a>
+    <div class="cta-contact">
+      <a href="https://wa.me/380669667560" target="_blank" class="contact-chip">📱 WhatsApp</a>
+      <a href="https://t.me/raffaile" target="_blank" class="contact-chip">✈️ Telegram</a>
+      <a href="mailto:wierspi@gmail.com" class="contact-chip">✉️ Email</a>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 Smart Booking AI · AI Автоматизація для Сервісного Бізнесу</p></footer>
+</body>
+</html>
