@@ -8,7 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #07060f; --surface: #0f0d1a; --card: #13111f;
+    --bg: #07060f;
+    --surface: #0f0d1a; --card: #13111f;
     --border: rgba(138,92,255,0.15); --accent: #8a5cff; --accent2: #b08aff;
     --accent-glow: rgba(138,92,255,0.35); --text: #f0ecff; --muted: #8a84a8;
     --green: #3ddc84; --gold: #f5c842;
@@ -28,7 +29,7 @@
   .nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
   section{position:relative;z-index:1}
   .container{max-width:1100px;margin:0 auto;padding:0 32px}
-  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 32px 80px;max-width:1100px;margin:0 auto}
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 32px 80px;max-width:1100px;margin:0 auto;position:relative;overflow:hidden;background:transparent !important;}
   .hero-content{max-width:680px}
   .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(138,92,255,0.12);border:1px solid var(--border);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:500;color:var(--accent2);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:32px;animation:fadeUp 0.6s ease both}
   .pulse{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite}
@@ -45,6 +46,24 @@
   .stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:-1px}
   .stat-num span{color:var(--accent2)}
   .stat-label{font-size:13px;color:var(--muted);margin-top:2px}
+  
+  /* Стилі для відео-фону */
+  .hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .hero-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
+
   .section-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
   h2{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
   .problem-section{padding:100px 0;background:linear-gradient(180deg,transparent,rgba(138,92,255,0.04),transparent)}
@@ -68,7 +87,6 @@
   .feature-card h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:10px}
   .feature-card p{font-size:14px;color:var(--muted);line-height:1.65}
 
-  /* NICHES */
   .niches-section{padding:100px 0;background:linear-gradient(180deg,transparent,rgba(138,92,255,0.05),transparent)}
   .niches-header{text-align:center;margin-bottom:70px}
   .niches-header p{color:var(--muted);font-size:17px;max-width:560px;margin:12px auto 0;line-height:1.7}
@@ -212,6 +230,12 @@
 </nav>
 
 <div class="hero">
+  <div class="hero-video-container">
+    <video autoplay muted loop playsinline>
+      <source src="promo.mp4.MP4" type="video/mp4">
+    </video>
+  </div>
+
   <div class="hero-content">
     <div class="hero-badge"><div class="pulse"></div>AI Автоматизація для Будь-якого Сервісного Бізнесу</div>
     <h1>Перетворюй пропущені чати на <span class="highlight">Гарантований Дохід</span></h1>
@@ -259,7 +283,6 @@
   </div>
 </section>
 
-<!-- NICHES -->
 <section class="niches-section">
   <div class="container">
     <div class="niches-header">
