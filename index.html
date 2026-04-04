@@ -157,6 +157,8 @@
         .cl-wa{background:rgba(37,211,102,.15);}
         .cl-tg{background:rgba(0,136,204,.15);}
         .cl-em{background:rgba(0,240,255,.1);}
+        
+        /* Стили формы для FormSubmit */
         .contact-form{display:flex;flex-direction:column;gap:14px;}
         .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
         .form-field{display:flex;flex-direction:column;gap:7px;}
@@ -165,10 +167,7 @@
         .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,240,255,.08);}
         .form-field select option{background:var(--bg);}
         .form-field textarea{resize:vertical;min-height:90px;}
-        .form-success{display:none;text-align:center;padding:40px;background:rgba(0,240,255,.05);border:1px solid var(--cyan);border-radius:12px;}
-        .form-success .si{font-size:3rem;margin-bottom:12px;}
-        .form-success h4{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
-        .form-success p{color:var(--muted);font-size:.86rem;}
+        
         footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--bg2);}
         footer .logo{font-size:.88rem;}
         footer p{font-size:.76rem;color:var(--muted);}
@@ -360,36 +359,39 @@
             <div class="contact-links">
                 <a href="https://wa.me/380669667560" class="contact-link" target="_blank"><div class="contact-link-icon cl-wa">💬</div><span>WhatsApp — написать сейчас</span></a>
                 <a href="https://t.me/raffaile" class="contact-link" target="_blank"><div class="contact-link-icon cl-tg">✈️</div><span>Telegram — @raffaile</span></a>
-                <a href="wierspi@gmail.com" class="contact-link"><div class="contact-link-icon cl-em">📧</div><span>wierspi@gmail.com</span></a>
+                <a href="mailto:wierspi@gmail.com" class="contact-link"><div class="contact-link-icon cl-em">📧</div><span>wierspi@gmail.com</span></a>
             </div>
         </div>
         <div>
-            <div class="contact-form" id="contactForm">
+            <form action="https://formsubmit.co/wierspi@gmail.com" method="POST" class="contact-form" id="contactForm">
+                
+                <input type="hidden" name="_subject" value="Новая заявка с сайта Smart Booking AI!">
+                <input type="hidden" name="_captcha" value="false">
+                
                 <div class="form-row">
-                    <div class="form-field"><label>Ваше имя</label><input type="text" placeholder="Иван Петренко" id="f-name"></div>
-                    <div class="form-field"><label>Телефон / Telegram</label><input type="text" placeholder="+380 XX XXX XX XX" id="f-phone"></div>
+                    <div class="form-field"><label>Ваше имя</label><input type="text" name="Имя" placeholder="Иван Петренко" id="f-name" required></div>
+                    <div class="form-field"><label>Телефон / Telegram</label><input type="text" name="Телефон" placeholder="+380 XX XXX XX XX" id="f-phone" required></div>
                 </div>
                 <div class="form-field">
                     <label>Тип бизнеса</label>
-                    <select id="f-type">
-                        <option value="">Выберите нишу...</option>
-                        <option>Автомойка / Детейлинг</option>
-                        <option>Барбершоп / Парикмахерская</option>
-                        <option>Бьюти-студия / Ногти</option>
-                        <option>Стоматология / Медицина</option>
-                        <option>Фитнес / Йога</option>
-                        <option>Ветклиника / Груминг</option>
-                        <option>Другое</option>
+                    <select name="Ниша" id="f-type">
+                        <option value="Не указано">Выберите нишу...</option>
+                        <option value="Автомойка / Детейлинг">Автомойка / Детейлинг</option>
+                        <option value="Барбершоп / Парикмахерская">Барбершоп / Парикмахерская</option>
+                        <option value="Бьюти-студия / Ногти">Бьюти-студия / Ногти</option>
+                        <option value="Стоматология / Медицина">Стоматология / Медицина</option>
+                        <option value="Фитнес / Йога">Фитнес / Йога</option>
+                        <option value="Ветклиника / Груминг">Ветклиника / Груминг</option>
+                        <option value="Другое">Другое</option>
                     </select>
                 </div>
-                <div class="form-field"><label>Расскажите о задаче</label><textarea placeholder="Сколько клиентов в день, какие каналы используете, что хотите автоматизировать..." id="f-msg"></textarea></div>
-                <button class="btn" onclick="submitForm()" style="width:100%;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Отправить заявку</button>
-            </div>
-            <div class="form-success" id="formSuccess">
-                <div class="si">🚀</div>
-                <h4>Заявка отправлена!</h4>
-                <p>Мы свяжемся с вами в течение 1 часа и подготовим персональное предложение для вашего бизнеса.</p>
-            </div>
+                <div class="form-field"><label>Расскажите о задаче</label><textarea name="Задача" placeholder="Сколько клиентов в день, какие каналы используете, что хотите автоматизировать..." id="f-msg"></textarea></div>
+                
+                <button type="submit" class="btn" style="width:100%;justify-content:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    Отправить заявку
+                </button>
+            </form>
         </div>
     </div>
 </section>
@@ -413,7 +415,7 @@ function switchDemo(id,btn){document.querySelectorAll('.chat-window').forEach(w=
 function calculateLoss(){const c=+document.getElementById('avgCheck').value,m=+document.getElementById('missedClients').value;document.getElementById('checkVal').innerText=c.toLocaleString('ru-RU');document.getElementById('missedVal').innerText=m;document.getElementById('lostProfit').innerText=(c*m*30).toLocaleString('ru-RU');}
 function calculateCost(){let t=200;document.querySelectorAll('.sf').forEach(b=>{if(b.checked)t+=+b.value;});document.getElementById('systemCost').innerText=t;}
 calculateLoss();calculateCost();
-function submitForm(){const n=document.getElementById('f-name').value.trim(),p=document.getElementById('f-phone').value.trim();if(!n||!p){alert('Пожалуйста, заполните имя и телефон.');return;}document.getElementById('contactForm').style.display='none';document.getElementById('formSuccess').style.display='block';}
+
 const T={ru:{nav_home:"Главная",nav_demo:"Демо",nav_niches:"Ниши",nav_pricing:"Цены",nav_roi:"ROI",nav_connect:"Подключить",hero_badge:"ИИ-автоматизация нового поколения",hero_title:"Система <span>Автоматизации</span><br>Бизнес-Процессов",hero_subtitle:"Нейросети берут рутину на себя. Умная запись клиентов, обработка заявок и полный контроль — без вашего участия.",hero_btn1:"Получить демо",hero_btn2:"Рассчитать выгоду",info_label:"Принцип работы",info_title:"Как это работает?",step1_title:"Подключение",step1_desc:"Интегрируем ИИ-бота в ваши соцсети (Instagram, Telegram, WhatsApp) и связываем с CRM за 1–3 дня.",step2_title:"Общение",step2_desc:"Бот общается с клиентом как живой человек: консультирует по услугам, отвечает на вопросы и отрабатывает возражения.",step3_title:"Запись и оплата",step3_desc:"Система сама проверяет свободные окошки, записывает клиента и принимает предоплату — всё автоматически.",feat_label:"Возможности",feat_title:"Что умеет система?",f1_title:"ИИ без выходных",f1_desc:"Работает 24/7, не болеет, не опаздывает, не забывает ответить клиенту.",f2_title:"Умное расписание",f2_desc:"Синхронизация с Google Calendar и любой CRM. Нет двойных записей.",f3_title:"Онлайн-оплата",f3_desc:"Клиент платит прямо в чате — LiqPay, Monobank, Stripe.",f4_title:"Аналитика",f4_desc:"Дашборд с конверсией, пропущенными и успешными записями в реальном времени.",f5_title:"Напоминания",f5_desc:"Автоматические напоминания клиентам за 24ч и 2ч до записи. Отмена и перенос — тоже авто.",f6_title:"Мультиканальность",f6_desc:"Instagram, Telegram, WhatsApp, Viber — один бот, все каналы одновременно.",demo_label:"Живые примеры",demo_title:"От первого сообщения до записи",demo_desc:"Клиент просто пишет одно сообщение — бот сам вытягивает все данные, подтверждает и логирует.",niche_label:"Подходит любому бизнесу",niche_title:"Один ИИ — любая ниша",price_label:"Тарифы",price_title:"Просто. Прозрачно. ROI с первой недели.",calc_label:"ROI-калькулятор",calc_title:"Посчитаем цифры?",calc_loss_title:"💸 Сколько вы теряете?",calc_check:"Средний чек (в местной валюте)",calc_missed:"Пропущенных клиентов в день",calc_loss_total:"Упущенная прибыль в месяц",calc_cost_title:"⚡ Стоимость внедрения ИИ",calc_base:"Базовый ИИ-бот (обязательно)",calc_crm:"Интеграция с CRM / Календарем",calc_pay:"Модуль онлайн-оплаты",calc_custom:"Кастомная логика и промпты",calc_cost_total:"Примерная стоимость внедрения",rev_label:"Отзывы клиентов",rev_title:"Что говорят владельцы бизнеса",contact_label:"Связаться",contact_title:"Готовы автоматизировать ваш рост?"},uk:{nav_home:"Головна",nav_demo:"Демо",nav_niches:"Ніші",nav_pricing:"Ціни",nav_roi:"ROI",nav_connect:"Підключити",hero_badge:"ШІ-автоматизація нового покоління",hero_title:"Система <span>Автоматизації</span><br>Бізнес-Процесів",hero_subtitle:"Нейромережі беруть рутину на себе. Розумний запис клієнтів, обробка заявок та повний контроль — без вашої участі.",hero_btn1:"Отримати демо",hero_btn2:"Розрахувати вигоду",info_label:"Принцип роботи",info_title:"Як це працює?",step1_title:"Підключення",step1_desc:"Інтегруємо ШІ-бота у ваші соцмережі (Instagram, Telegram, WhatsApp) та зв'язуємо з CRM за 1–3 дні.",step2_title:"Спілкування",step2_desc:"Бот спілкується з клієнтом як жива людина: консультує, відповідає на питання та знімає заперечення.",step3_title:"Запис та оплата",step3_desc:"Система сама перевіряє вільні вікна, записує клієнта та приймає передоплату — все автоматично.",feat_label:"Можливості",feat_title:"Що вміє система?",f1_title:"ШІ без вихідних",f1_desc:"Працює 24/7, не хворіє, не спізнюється, не забуває відповісти клієнту.",f2_title:"Розумний розклад",f2_desc:"Синхронізація з Google Calendar та будь-якою CRM. Немає подвійних записів.",f3_title:"Онлайн-оплата",f3_desc:"Клієнт платить прямо в чаті — LiqPay, Monobank, Stripe.",f4_title:"Аналітика",f4_desc:"Дашборд з конверсією, пропущеними та успішними записами в реальному часі.",f5_title:"Нагадування",f5_desc:"Автоматичні нагадування клієнтам за 24 год та 2 год до запису. Відміна та перенесення — теж авто.",f6_title:"Мультиканальність",f6_desc:"Instagram, Telegram, WhatsApp, Viber — один бот, всі канали одночасно.",demo_label:"Живі приклади",demo_title:"Від першого повідомлення до запису",demo_desc:"Клієнт просто пише одне повідомлення — бот сам витягує всі дані, підтверджує та логує.",niche_label:"Підходить будь-якому бізнесу",niche_title:"Один ШІ — будь-яка ніша",price_label:"Тарифи",price_title:"Просто. Прозоро. ROI з першого тижня.",calc_label:"ROI-калькулятор",calc_title:"Порахуємо цифри?",calc_loss_title:"💸 Скільки ви втрачаєте?",calc_check:"Середній чек (у місцевій валюті)",calc_missed:"Пропущених клієнтів на день",calc_loss_total:"Упущена вигода на місяць",calc_cost_title:"⚡ Вартість впровадження ШІ",calc_base:"Базовий ШІ-бот (обов'язково)",calc_crm:"Інтеграція з CRM / Календарем",calc_pay:"Модуль онлайн-оплати",calc_custom:"Кастомна логіка та промпти",calc_cost_total:"Орієнтовна вартість впровадження",rev_label:"Відгуки клієнтів",rev_title:"Що кажуть власники бізнесу",contact_label:"Зв'язатися",contact_title:"Готові автоматизувати ваш ріст?"},en:{nav_home:"Home",nav_demo:"Demo",nav_niches:"Niches",nav_pricing:"Pricing",nav_roi:"ROI",nav_connect:"Connect",hero_badge:"Next-Gen AI Automation",hero_title:"Business Process<br><span>Automation</span> System",hero_subtitle:"Neural networks handle the routine. Smart client booking, request processing, and full control — without your involvement.",hero_btn1:"Get Demo",hero_btn2:"Calculate ROI",info_label:"How it works",info_title:"How does it work?",step1_title:"Integration",step1_desc:"We integrate the AI bot into your social networks and connect it to CRM in 1-3 days.",step2_title:"Communication",step2_desc:"The bot communicates like a live human: consults on services, answers questions, and handles objections.",step3_title:"Booking & Payment",step3_desc:"The system checks free slots, books the client, and accepts prepayment — completely automatically.",feat_label:"Features",feat_title:"System Capabilities",f1_title:"AI with no days off",f1_desc:"Works 24/7, doesn't get sick, doesn't arrive late, never forgets to reply.",f2_title:"Smart Scheduling",f2_desc:"Syncs with Google Calendar and any CRM. No double bookings.",f3_title:"Online Payments",f3_desc:"Clients pay directly in the chat — Stripe, PayPal, etc.",f4_title:"Analytics",f4_desc:"Dashboard with conversion, missed, and successful bookings in real-time.",f5_title:"Reminders",f5_desc:"Auto-reminders 24h and 2h before the appointment. Cancellations and rescheduling are also auto.",f6_title:"Multichannel",f6_desc:"Instagram, Telegram, WhatsApp, Viber — one bot, all channels simultaneously.",demo_label:"Live Examples",demo_title:"From first message to booking",demo_desc:"The client simply sends one message — the bot extracts all data, confirms, and logs it.",niche_label:"Fits any business",niche_title:"One AI — Any Niche",price_label:"Pricing",price_title:"Simple. Transparent. ROI from week one.",calc_label:"ROI Calculator",calc_title:"Let's do the math",calc_loss_title:"💸 How much are you losing?",calc_check:"Average Check (local currency)",calc_missed:"Missed clients per day",calc_loss_total:"Lost profit per month",calc_cost_title:"⚡ AI Implementation Cost",calc_base:"Basic AI Bot (Required)",calc_crm:"CRM / Calendar Integration",calc_pay:"Online Payment Module",calc_custom:"Custom Logic & Prompts",calc_cost_total:"Estimated implementation cost",rev_label:"Client Reviews",rev_title:"What business owners say",contact_label:"Contact",contact_title:"Ready to automate your growth?"}};
 document.getElementById('langSelect').addEventListener('change',e=>{const l=e.target.value;document.querySelectorAll('[data-lang]').forEach(el=>{const k=el.getAttribute('data-lang');if(T[l]&&T[l][k])el.innerHTML=T[l][k];});const lc=document.getElementById('loss-currency');if(lc)lc.textContent=l==='en'?'$':'₴';});
 </script>
