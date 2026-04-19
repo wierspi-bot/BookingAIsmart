@@ -1,0 +1,446 @@
+<!DOCTYPE html><html lang="ru">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking AI | Автозапись клиентов 24/7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="cur"></div><div id="cur-ring"></div>
+
+<nav id="navbar">
+  <div class="logo">Booking<span>AI</span></div>
+  <ul>
+    <li><a href="#problem" data-lang="nav_problem">Проблема</a></li>
+    <li><a href="#demo" data-lang="nav_demo">Демо</a></li>
+    <li><a href="#niches" data-lang="nav_niches">Ниши</a></li>
+    <li><a href="#pricing" data-lang="nav_pricing">Цены</a></li>
+    <li><a href="#calculators" data-lang="nav_roi">ROI</a></li>
+    <li><a href="#contact" data-lang="nav_connect">Подключить</a></li>
+  </ul>
+  <select class="lang-sw" id="langSel">
+    <option value="ru">RU</option><option value="uk">UA</option><option value="en">EN</option>
+  </select>
+</nav>
+
+<!-- ═══════════ HERO — OFFER FIRST ═══════════ -->
+
+<section id="hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%;">
+
+```
+<!-- URGENCY -->
+<div class="urgency-ribbon">
+  <span class="pulse"></span>
+  <span data-lang="urgency">Каждый день без бота = деньги в мусор</span>
+</div>
+
+<p class="pain-hook" data-lang="pain_hook">
+  Пока вы спите, отдыхаете или заняты — клиенты пишут,<br>
+  не получают ответ и уходят к конкуренту. <strong>Навсегда.</strong>
+</p>
+
+<h1>
+  <span data-lang="h1_line1">Ваш бизнес</span><br>
+  <span class="hl" data-lang="h1_line2">записывает клиентов</span><br>
+  <span class="hl2" data-lang="h1_line3">пока вы не работаете</span>
+</h1>
+
+<div class="proof-bar">
+  <div class="proof-item"><span class="pv">+40%</span><span class="pl" data-lang="proof1">Записей в месяц</span></div>
+  <div class="proof-item"><span class="pv">−80%</span><span class="pl" data-lang="proof2">Потерь клиентов</span></div>
+  <div class="proof-item"><span class="pv">24/7</span><span class="pl" data-lang="proof3">Работает всегда</span></div>
+  <div class="proof-item"><span class="pv">3 <span data-lang="proof4_unit">дня</span></span><span class="pl" data-lang="proof4">До запуска</span></div>
+</div>
+
+<div class="offer-box">
+  <div class="offer-title" data-lang="offer_title">✦ Что вы получаете</div>
+  <div class="offer-items">
+    <div class="offer-item"><div class="offer-check">✓</div><div data-lang="offer1"><strong>ИИ-бот в Instagram, Telegram, WhatsApp</strong> <span>— отвечает как живой менеджер, без выходных</span></div></div>
+    <div class="offer-item"><div class="offer-check">✓</div><div data-lang="offer2"><strong>Автозапись с проверкой расписания</strong> <span>— клиент выбирает время, бот вносит в CRM сам</span></div></div>
+    <div class="offer-item"><div class="offer-check">✓</div><div data-lang="offer3"><strong>Приём предоплаты прямо в чате</strong> <span>— LiqPay, Monobank, Stripe. No-show падает до 2%</span></div></div>
+    <div class="offer-item"><div class="offer-check">✓</div><div data-lang="offer4"><strong>Напоминания за 24ч и 2ч до визита</strong> <span>— автоматически, без вашего участия</span></div></div>
+  </div>
+</div>
+
+<div class="hero-btns">
+  <a href="#contact" class="btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 19l-7-7 7-7"/><path d="M20 18v-2a4 4 0 00-4-4H5"/></svg>
+    <span data-lang="cta_main">Хочу расчёт окупаемости</span>
+  </a>
+  <a href="#demo" class="btn-ghost" data-lang="cta_demo">Смотреть демо →</a>
+</div>
+
+<div class="trust-line">
+  <div class="trust-avatars">
+    <div class="av">🚗</div><div class="av">✂️</div><div class="av">💅</div><div class="av">🦷</div><div class="av">💪</div>
+  </div>
+  <div class="trust-stars">★★★★★</div>
+  <span data-lang="trust_line">Уже используют 50+ бизнесов в Украине</span>
+</div>
+```
+
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ═══════════ PROBLEM — БОЛЬ ═══════════ -->
+
+<section id="problem">
+  <div class="s-label reveal" data-lang="prob_label">Почему вы теряете деньги прямо сейчас</div>
+  <h2 class="s-title reveal" data-lang="prob_title">Знакомо?</h2>
+  <div class="problem-grid reveal">
+    <div class="problem-card"><span class="problem-icon">📵</span><h3 data-lang="prob1_title">Клиент написал в 22:00</h3><p data-lang="prob1_desc">Вы увидели сообщение утром. Он уже записался к другому. Это происходит каждый день.</p><span class="problem-loss" data-lang="prob1_loss">−3 клиента/день = −90 в месяц</span></div>
+    <div class="problem-card"><span class="problem-icon">🔄</span><h3 data-lang="prob2_title">Администратор тратит 3ч на переписку</h3><p data-lang="prob2_desc">Одни и те же вопросы: «А сколько стоит?», «А есть в среду?» — по кругу, каждый день.</p><span class="problem-loss" data-lang="prob2_loss">3ч × 30 дней = 90 часов впустую</span></div>
+    <div class="problem-card"><span class="problem-icon">🏃</span><h3 data-lang="prob3_title">No-show убивает расписание</h3><p data-lang="prob3_desc">Клиент просто не пришёл. Слот пустой, время потеряно, деньги не получены.</p><span class="problem-loss" data-lang="prob3_loss">20% записей срываются без системы</span></div>
+    <div class="problem-card"><span class="problem-icon">💸</span><h3 data-lang="prob4_title">Двойные записи и путаница</h3><p data-lang="prob4_desc">Один слот записали дважды. Клиент приехал — мастер занят. Скандал, возврат, плохой отзыв.</p><span class="problem-loss" data-lang="prob4_loss">1 конфликт = −5 клиентов по сарафану</span></div>
+  </div>
+</section>
+
+<section id="info" style="background:var(--bg);">
+  <div class="s-label reveal" data-lang="info_label">Принцип работы</div>
+  <h2 class="s-title reveal" data-lang="info_title">Как это решается?</h2>
+  <div class="steps reveal">
+    <div class="step"><div class="step-line"></div><div class="step-num">01</div><span class="step-icon">🔗</span><h3 data-lang="step1_t">Подключение</h3><p data-lang="step1_d">Интегрируем ИИ-бота в ваши соцсети (Instagram, Telegram, WhatsApp) и связываем с CRM за 1–3 дня.</p></div>
+    <div class="step"><div class="step-line"></div><div class="step-num">02</div><span class="step-icon">💬</span><h3 data-lang="step2_t">Общение</h3><p data-lang="step2_d">Бот общается с клиентом как живой человек: консультирует по услугам, отвечает на вопросы и отрабатывает возражения.</p></div>
+    <div class="step"><div class="step-line"></div><div class="step-num">03</div><span class="step-icon">✅</span><h3 data-lang="step3_t">Запись и оплата</h3><p data-lang="step3_d">Система сама проверяет свободные окошки, записывает клиента и принимает предоплату — всё автоматически.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════ FEATURES ═══════════ -->
+
+<section id="features">
+  <div class="s-label reveal" data-lang="feat_label">Возможности</div>
+  <h2 class="s-title reveal" data-lang="feat_title">Что умеет система?</h2>
+  <div class="features-grid reveal">
+    <div class="feat"><span class="feat-icon">🤖</span><h4 data-lang="f1_t">ИИ без выходных</h4><p data-lang="f1_d">Работает 24/7, не болеет, не опаздывает, не забывает ответить клиенту.</p></div>
+    <div class="feat"><span class="feat-icon">📅</span><h4 data-lang="f2_t">Умное расписание</h4><p data-lang="f2_d">Синхронизация с Google Calendar и любой CRM. Нет двойных записей.</p></div>
+    <div class="feat"><span class="feat-icon">💳</span><h4 data-lang="f3_t">Онлайн-оплата</h4><p data-lang="f3_d">Клиент платит прямо в чате — LiqPay, Monobank, Stripe.</p></div>
+    <div class="feat"><span class="feat-icon">📊</span><h4 data-lang="f4_t">Аналитика</h4><p data-lang="f4_d">Дашборд с конверсией, пропущенными и успешными записями в реальном времени.</p></div>
+    <div class="feat"><span class="feat-icon">🔔</span><h4 data-lang="f5_t">Напоминания</h4><p data-lang="f5_d">Автоматические напоминания клиентам за 24ч и 2ч до записи. Отмена и перенос — тоже авто.</p></div>
+    <div class="feat"><span class="feat-icon">🌐</span><h4 data-lang="f6_t">Мультиканальность</h4><p data-lang="f6_d">Instagram, Telegram, WhatsApp, Viber — один бот, все каналы одновременно.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════ DEMO ═══════════ -->
+
+<section id="demo">
+  <div class="s-label reveal" data-lang="demo_label">Живые примеры</div>
+  <h2 class="s-title reveal" data-lang="demo_title">От первого сообщения до записи</h2>
+  <p class="reveal" style="color:var(--muted);font-size:.9rem;max-width:500px;text-align:center;margin-bottom:44px;" data-lang="demo_desc">Клиент просто пишет одно сообщение — бот вытягивает все данные, подтверждает и логирует.</p>
+  <div class="demo-tabs reveal">
+    <button class="demo-tab active" onclick="switchDemo('carwash',this)">🚗 Автомойка</button>
+    <button class="demo-tab" onclick="switchDemo('barber',this)">✂️ Барбершоп</button>
+    <button class="demo-tab" onclick="switchDemo('beauty',this)">💅 Бьюти-студия</button>
+    <button class="demo-tab" onclick="switchDemo('dental',this)">🦷 Стоматология</button>
+    <button class="demo-tab" onclick="switchDemo('fitness',this)">💪 Фитнес</button>
+  </div>
+  <div class="demo-stage reveal">
+    <div class="chat-window active" id="demo-carwash"><div class="chat-header"><div class="chat-avatar">🚗</div><div><div class="chat-name">Автомойка AI</div><div class="chat-status">Онлайн сейчас</div></div></div><div class="chat-body"><div class="msg user"><div class="msg-bubble">Привет, какие услуги есть?</div><div class="msg-time">22:47</div></div><div class="msg bot"><div class="msg-bubble">Привет! 👋<br><br>🚗 Стандартное мытьё — 700 грн<br>✨ Комплексное — 1 200 грн<br>🛡️ Антидождь — 250 грн<br>💎 Полировка — 450 грн<br><br>Записаться?</div><div class="msg-time">22:47</div></div><div class="msg user"><div class="msg-bubble">Запиши меня 15 февраля в 13:00, стандарт, BMW. Иван, +380669667560</div><div class="msg-time">22:48</div></div><div class="msg bot"><div class="msg-bubble">✅ Стандартное мытьё · BMW<br>👤 Иван · +380669667560<br>📅 15 фев, 13:00 — всё верно?</div><div class="msg-time">22:48</div></div><div class="msg user"><div class="msg-bubble">Да!</div><div class="msg-time">22:48</div></div><div class="msg bot"><div class="msg-bubble">🎉 Подтверждено! Ждём 15 февраля в 13:00, Иван! Напомним за 2ч. 🔔</div><div class="msg-time">22:48</div></div></div></div>
+    <div class="chat-window" id="demo-barber"><div class="chat-header"><div class="chat-avatar">✂️</div><div><div class="chat-name">Барбершоп AI</div><div class="chat-status">Онлайн сейчас</div></div></div><div class="chat-body"><div class="msg user"><div class="msg-bubble">Есть место в пятницу к Максиму?</div><div class="msg-time">11:20</div></div><div class="msg bot"><div class="msg-bubble">Привет! ✂️<br>В пятницу у Максима:<br>📅 14:00 — стрижка + укладка<br>📅 16:30 — только стрижка<br><br>Какое время удобно?</div><div class="msg-time">11:20</div></div><div class="msg user"><div class="msg-bubble">14:00, меня зовут Олег</div><div class="msg-time">11:21</div></div><div class="msg bot"><div class="msg-bubble">✅ Олег, записал!<br>✂️ Максим · Пятница 14:00<br>💈 Стрижка + укладка — 450 грн 🙌</div><div class="msg-time">11:21</div></div></div></div>
+    <div class="chat-window" id="demo-beauty"><div class="chat-header"><div class="chat-avatar">💅</div><div><div class="chat-name">Бьюти-студия AI</div><div class="chat-status">Онлайн сейчас</div></div></div><div class="chat-body"><div class="msg user"><div class="msg-bubble">Сколько маникюр с гель-лаком?</div><div class="msg-time">09:15</div></div><div class="msg bot"><div class="msg-bubble">💅 Маникюр + гель-лак — 650 грн (~60 мин)<br>Записать вас?</div><div class="msg-time">09:15</div></div><div class="msg user"><div class="msg-bubble">Да, среда вечер. Я Виктория</div><div class="msg-time">09:16</div></div><div class="msg bot"><div class="msg-bubble">В среду вечером:<br>📅 17:00 — Алина · 📅 18:30 — Катя<br>Кто удобнее?</div><div class="msg-time">09:16</div></div><div class="msg user"><div class="msg-bubble">Алина в 17:00</div><div class="msg-time">09:17</div></div><div class="msg bot"><div class="msg-bubble">🎉 Виктория, записано!<br>💅 Среда 17:00 · Алина · 650 грн 🔔</div><div class="msg-time">09:17</div></div></div></div>
+    <div class="chat-window" id="demo-dental"><div class="chat-header"><div class="chat-avatar">🦷</div><div><div class="chat-name">Стоматология AI</div><div class="chat-status">Онлайн сейчас</div></div></div><div class="chat-body"><div class="msg user"><div class="msg-bubble">Хочу на чистку, среда утро, Дмитрий</div><div class="msg-time">14:05</div></div><div class="msg bot"><div class="msg-bubble">Добрый день, Дмитрий! 🦷<br>Профчистка — 1 200 грн (~60 мин)<br><br>Среда утром:<br>📅 09:00 — Петренко · 📅 11:00 — Ковальчук</div><div class="msg-time">14:05</div></div><div class="msg user"><div class="msg-bubble">09:00</div><div class="msg-time">14:06</div></div><div class="msg bot"><div class="msg-bubble">✅ Записано!<br>🦷 Среда 09:00 · д-р Петренко<br>1 200 грн · Напомним завтра! 🔔</div><div class="msg-time">14:06</div></div></div></div>
+    <div class="chat-window" id="demo-fitness"><div class="chat-header"><div class="chat-avatar">💪</div><div><div class="chat-name">Фитнес-студия AI</div><div class="chat-status">Онлайн сейчас</div></div></div><div class="chat-body"><div class="msg user"><div class="msg-bubble">Есть места на йогу в воскресенье утром?</div><div class="msg-time">20:33</div></div><div class="msg bot"><div class="msg-bubble">🧘 Вс 09:00 — Йога для начинающих<br>Инструктор: Анна · свободно 3/12<br><br>Записать?</div><div class="msg-time">20:33</div></div><div class="msg user"><div class="msg-bubble">Да! Я Марина</div><div class="msg-time">20:34</div></div><div class="msg bot"><div class="msg-bubble">🎉 Марина, записано!<br>🧘 Вс 09:00 · Анна · 350 грн 🔔</div><div class="msg-time">20:34</div></div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════ NICHES ═══════════ -->
+
+<section id="niches">
+  <div class="s-label reveal" data-lang="niche_label">Подходит любому бизнесу</div>
+  <h2 class="s-title reveal" data-lang="niche_title">Один ИИ — любая ниша</h2>
+  <div class="niches-grid reveal">
+    <div class="niche-card"><div class="niche-line"></div><div class="niche-top"><div class="niche-icon">🚗</div><div class="niche-title">Автомойка / Детейлинг</div></div><div class="niche-desc">Записи на мытьё, полировку, химчистку 24/7 без администратора.</div><div class="niche-stats"><div class="niche-stat"><div class="val">+40%</div><div class="lbl">Больше записей</div></div><div class="niche-stat"><div class="val">0</div><div class="lbl">Пропущенных</div></div></div></div>
+    <div class="niche-card"><div class="niche-line"></div><div class="niche-top"><div class="niche-icon">✂️</div><div class="niche-title">Барбершоп / Парикмахерская</div></div><div class="niche-desc">Бот знает расписание каждого мастера и записывает в любое время.</div><div class="niche-stats"><div class="niche-stat"><div class="val">+35%</div><div class="lbl">Загрузка</div></div><div class="niche-stat"><div class="val">-80%</div><div class="lbl">No-show</div></div></div></div>
+    <div class="niche-card"><div class="niche-line"></div><div class="niche-top"><div class="niche-icon">💅</div><div class="niche-title">Бьюти-студия / Ногти</div></div><div class="niche-desc">Консультирует по услугам и мастерам — сразу записывает без звонков.</div><div class="niche-stats"><div class="niche-stat"><div class="val">+50%</div><div class="lbl">Конверсия</div></div><div class="niche-stat"><div class="val">3 ч</div><div class="lbl">Сэкономлено/день</div></div></div></div>
+    <div class="niche-card"><div class="niche-line"></div><div class="niche-top"><div class="niche-icon">🦷</div><div class="niche-title">Стоматология / Медицина</div></div><div class="niche-desc">Выбор врача и времени без нагрузки на ресепшен. No-show до 2%.</div><div class="niche-stats"><div class="niche-stat"><div class="val">+45%</div><div class="lbl">Записей</div></div><div class="niche-stat"><div class="val">-90%</div><div class="lbl">No-show</div></div></div></div>
+    <div class="niche-card"><div class="niche-line"></div><div class="niche-top"><div class="niche-icon">💪</div><div class="niche-title">Фитнес / Йога-студия</div></div><div class="niche-desc">Расписание групп, свободные места, тренеры — бот знает всё.</div><div class="niche-stats"><div class="niche-stat"><div class="val">+60%</div><div class="lbl">Заполняемость</div></div><div class="niche-stat"><div class="val">2 ч</div><div class="lbl">Сэкономлено/день</div></div></div></div>
+    <div class="niche-card"><div class="niche-line"></div><div class="niche-top"><div class="niche-icon">🐾</div><div class="niche-title">Ветклиника / Груминг</div></div><div class="niche-desc">Запись с учётом вида, породы и услуги. Напоминания по прививкам.</div><div class="niche-stats"><div class="niche-stat"><div class="val">+38%</div><div class="lbl">Клиентов</div></div><div class="niche-stat"><div class="val">100%</div><div class="lbl">Без пропусков</div></div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+
+<section id="pricing">
+  <div class="s-label reveal" data-lang="price_label">Тарифы</div>
+  <h2 class="s-title reveal" data-lang="price_title">Просто. Прозрачно. ROI с первой недели.</h2>
+  <div class="pricing-grid reveal">
+    <div class="price-card">
+      <div class="price-label">Подключение</div>
+      <div class="price-amount"><sup>$</sup>300</div>
+      <div class="price-period">Одноразовая настройка</div>
+      <ul class="price-features">
+        <li>Полная настройка ИИ-бота</li><li>Интеграция с Google Calendar</li><li>CRM в Google Sheets</li><li>Подключение всех каналов</li><li>Кастомизация под ваш бизнес</li>
+      </ul>
+      <a href="#contact" class="btn-ghost" style="width:100%;justify-content:center;">Начать</a>
+    </div>
+    <div class="price-card popular">
+      <div class="popular-badge">Популярное</div>
+      <div class="price-label">Ежемесячная подписка</div>
+      <div class="price-amount"><sup>$</sup>100</div>
+      <div class="price-period">в месяц — поддержка и обслуживание</div>
+      <ul class="price-features">
+        <li>Работа бота 24/7</li><li>Обновления и улучшения</li><li>Изменение услуг в любое время</li><li>Приоритетная поддержка</li><li>Ежемесячный отчёт по эффективности</li>
+      </ul>
+      <a href="#contact" class="btn" style="width:100%;justify-content:center;">Подключить</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ROI CALC ═══════════ -->
+
+<section id="calculators">
+  <div class="s-label reveal" data-lang="calc_label">ROI-калькулятор</div>
+  <h2 class="s-title reveal" data-lang="calc_title">Посчитаем вашу выгоду прямо сейчас</h2>
+  <div class="calc-container reveal">
+    <div class="calc-box">
+      <h3 data-lang="calc_loss_title">💸 Сколько вы теряете без бота?</h3>
+      <div class="slider-group"><div class="slider-label"><span data-lang="calc_check">Средний чек (в местной валюте)</span><span class="slider-val" id="checkVal">500</span></div><input type="range" id="avgCheck" min="100" max="5000" step="100" value="500" oninput="calcLoss()"></div>
+      <div class="slider-group"><div class="slider-label"><span data-lang="calc_missed">Пропущенных клиентов в день</span><span class="slider-val" id="missedVal">3</span></div><input type="range" id="missedClients" min="1" max="30" step="1" value="3" oninput="calcLoss()"></div>
+      <div class="total-box"><div class="total-label" data-lang="calc_loss_total">Упущенная прибыль в месяц</div><div class="total-num loss"><span id="lostProfit">45 000</span> <span id="lossCur">₴</span></div></div>
+    </div>
+    <div class="calc-box">
+      <h3 data-lang="calc_cost_title">⚡ Стоимость внедрения ИИ</h3>
+      <div class="checkbox-item"><input type="checkbox" checked disabled><span class="cb-label" data-lang="calc_base">Базовый ИИ-бот (обязательно)</span><span class="cb-price">200$</span></div>
+      <div class="checkbox-item"><input type="checkbox" class="sf" value="100" onchange="calcCost()"><span class="cb-label" data-lang="calc_crm">Интеграция с CRM / Календарем</span><span class="cb-price">+100$</span></div>
+      <div class="checkbox-item"><input type="checkbox" class="sf" value="50" onchange="calcCost()"><span class="cb-label" data-lang="calc_pay">Модуль онлайн-оплаты</span><span class="cb-price">+50$</span></div>
+      <div class="checkbox-item"><input type="checkbox" class="sf" value="150" onchange="calcCost()"><span class="cb-label" data-lang="calc_custom">Кастомная логика и промпты</span><span class="cb-price">+150$</span></div>
+      <div class="total-box"><div class="total-label" data-lang="calc_cost_total">Примерная стоимость внедрения</div><div class="total-num"><span id="sysCost">200</span> $</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ REVIEWS ═══════════ -->
+
+<section id="reviews">
+  <div class="s-label reveal" data-lang="rev_label">Отзывы клиентов</div>
+  <h2 class="s-title reveal" data-lang="rev_title">Что говорят владельцы бизнеса</h2>
+  <div class="reviews-grid reveal">
+    <div class="review-card"><div class="verified">✦ Верифицирован</div><div class="review-stars">★★★★★</div><div class="review-text">«Внедрили бота в нашу автомойку 2 месяца назад. Пропущенных звонков — ноль. Записей стало на 40% больше.»</div><div class="review-author"><div class="review-avatar">🚗</div><div><div class="review-name">Андрей К.</div><div class="review-role">Автомойка «Чистый Авто», Киев</div></div></div></div>
+    <div class="review-card"><div class="verified">✦ Верифицирован</div><div class="review-stars">★★★★★</div><div class="review-text">«Клиенты сами записываются в 23:00, а утром мастер видит полное расписание. Конверсия выросла вдвое.»</div><div class="review-author"><div class="review-avatar">💅</div><div><div class="review-name">Оксана М.</div><div class="review-role">Бьюти-студия «Nails & More», Харьков</div></div></div></div>
+    <div class="review-card"><div class="verified">✦ Верифицирован</div><div class="review-stars">★★★★★</div><div class="review-text">«Раньше тратил 2 часа в день на переписку. Сейчас бот делает всё сам — клиенты довольны скоростью.»</div><div class="review-author"><div class="review-avatar">✂️</div><div><div class="review-name">Дмитрий В.</div><div class="review-role">Барбершоп «BroStyle», Одесса</div></div></div></div>
+    <div class="review-card"><div class="verified">✦ Верифицирован</div><div class="review-stars">★★★★★</div><div class="review-text">«No-show был до 20%. После внедрения напоминаний — 2%. Окупилось за первый месяц.»</div><div class="review-author"><div class="review-avatar">🦷</div><div><div class="review-name">Наталья Р.</div><div class="review-role">Стоматология «SmilePlus», Львов</div></div></div></div>
+    <div class="review-card"><div class="verified">✦ Верифицирован</div><div class="review-stars">★★★★★</div><div class="review-text">«За 3 месяца — 100% загрузка всех классов без рекламного бюджета. Бот заполняет группы сам.»</div><div class="review-author"><div class="review-avatar">🧘</div><div><div class="review-name">Анна С.</div><div class="review-role">Йога-студия «Harmony», Днепр</div></div></div></div>
+    <div class="review-card"><div class="verified">✦ Верифицирован</div><div class="review-stars">★★★★★</div><div class="review-text">«2 дня — и бот уже работает. Все изменения вносят в течение часа. Рекомендую!»</div><div class="review-author"><div class="review-avatar">🐾</div><div><div class="review-name">Игорь Л.</div><div class="review-role">Ветеринарная клиника «PetCare», Запорожье</div></div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+
+<section id="contact">
+  <div class="s-label reveal" data-lang="contact_label">Связаться</div>
+  <h2 class="s-title reveal" data-lang="contact_title">Готовы автоматизировать ваш рост?</h2>
+  <div class="contact-wrap reveal">
+    <div class="contact-info">
+      <h3 data-lang="contact_h3">Получите расчёт окупаемости бесплатно</h3>
+      <p data-lang="contact_p">Расскажите о вашем бизнесе — мы посчитаем сколько вы теряете сейчас и когда окупится внедрение. Без давления и обязательств.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/380669667560" class="contact-link" target="_blank"><div class="contact-link-icon cl-wa">💬</div><span>WhatsApp — написать сейчас</span></a>
+        <a href="https://t.me/raffaile" class="contact-link" target="_blank"><div class="contact-link-icon cl-tg">✈️</div><span>Telegram — @raffaile</span></a>
+        <a href="mailto:wierspi@gmail.com" class="contact-link"><div class="contact-link-icon cl-em">📧</div><span>wierspi@gmail.com</span></a>
+      </div>
+    </div>
+    <div>
+      <form action="https://formsubmit.co/wierspi@gmail.com" method="POST" class="contact-form">
+        <input type="hidden" name="_subject" value="Новая заявка с сайта Smart Booking AI!">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row">
+          <div class="form-field"><label>Ваше имя</label><input type="text" name="Имя" placeholder="Иван Петренко" required></div>
+          <div class="form-field"><label>Телефон / Telegram</label><input type="text" name="Телефон" placeholder="+380 XX XXX XX XX" required></div>
+        </div>
+        <div class="form-field"><label>Тип бизнеса</label><select name="Ниша"><option>Выберите нишу...</option><option>Автомойка / Детейлинг</option><option>Барбершоп / Парикмахерская</option><option>Бьюти-студия / Ногти</option><option>Стоматология / Медицина</option><option>Фитнес / Йога</option><option>Ветклиника / Груминг</option><option>Другое</option></select></div>
+        <div class="form-field"><label>Сколько клиентов в день?</label><input type="text" name="Клиентов" placeholder="Примерно 10-15 в день"></div>
+        <div class="form-field"><label>Расскажите о задаче</label><textarea name="Задача" placeholder="Какие каналы используете, что болит больше всего..."></textarea></div>
+        <button type="submit" class="btn" style="width:100%;justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span data-lang="form_submit">Хочу расчёт окупаемости</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Booking<span>AI</span></div>
+  <p>© 2026 Smart Booking AI · ИИ-автоматизация для сервисного бизнеса</p>
+  <div class="footer-links"><a href="#">Политика</a><a href="#">Условия</a></div>
+</footer>
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';},{passive:true});
+(function loop(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='54px';ring.style.height='54px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
+
+// REVEAL
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50),{passive:true});
+
+// TABS
+function switchDemo(id,btn){
+  document.querySelectorAll('.chat-window').forEach(w=>w.classList.remove('active'));
+  document.querySelectorAll('.demo-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('demo-'+id).classList.add('active');btn.classList.add('active');
+}
+
+// CALC
+function calcLoss(){
+  const c=+document.getElementById('avgCheck').value,m=+document.getElementById('missedClients').value;
+  document.getElementById('checkVal').textContent=c.toLocaleString('ru-RU');
+  document.getElementById('missedVal').textContent=m;
+  document.getElementById('lostProfit').textContent=(c*m*30).toLocaleString('ru-RU');
+}
+function calcCost(){let t=200;document.querySelectorAll('.sf').forEach(b=>{if(b.checked)t+=+b.value;});document.getElementById('sysCost').textContent=t;}
+calcLoss();calcCost();
+
+// ═══ LANGUAGE SWITCHER ═══
+const T={
+  ru:{
+    nav_problem:"Проблема",nav_demo:"Демо",nav_niches:"Ниши",nav_pricing:"Цены",nav_roi:"ROI",nav_connect:"Подключить",
+    urgency:"Каждый день без бота = деньги в мусор",
+    pain_hook:"Пока вы спите, отдыхаете или заняты — клиенты пишут,<br>не получают ответ и уходят к конкуренту. <strong>Навсегда.</strong>",
+    h1_line1:"Ваш бизнес",h1_line2:"записывает клиентов",h1_line3:"пока вы не работаете",
+    proof1:"Записей в месяц",proof2:"Потерь клиентов",proof3:"Работает всегда",proof4:"До запуска",proof4_unit:"дня",
+    offer_title:"✦ Что вы получаете",
+    offer1:"<strong>ИИ-бот в Instagram, Telegram, WhatsApp</strong> <span>— отвечает как живой менеджер, без выходных</span>",
+    offer2:"<strong>Автозапись с проверкой расписания</strong> <span>— клиент выбирает время, бот вносит в CRM сам</span>",
+    offer3:"<strong>Приём предоплаты прямо в чате</strong> <span>— LiqPay, Monobank, Stripe. No-show падает до 2%</span>",
+    offer4:"<strong>Напоминания за 24ч и 2ч до визита</strong> <span>— автоматически, без вашего участия</span>",
+    cta_main:"Хочу расчёт окупаемости",cta_demo:"Смотреть демо →",
+    trust_line:"Уже используют 50+ бизнесов в Украине",
+    prob_label:"Почему вы теряете деньги прямо сейчас",prob_title:"Знакомо?",
+    prob1_title:"Клиент написал в 22:00",prob1_desc:"Вы увидели сообщение утром. Он уже записался к другому. Это происходит каждый день.",prob1_loss:"−3 клиента/день = −90 в месяц",
+    prob2_title:"Администратор тратит 3ч на переписку",prob2_desc:"Одни и те же вопросы: «А сколько стоит?», «А есть в среду?» — по кругу, каждый день.",prob2_loss:"3ч × 30 дней = 90 часов впустую",
+    prob3_title:"No-show убивает расписание",prob3_desc:"Клиент просто не пришёл. Слот пустой, время потеряно, деньги не получены.",prob3_loss:"20% записей срываются без системы",
+    prob4_title:"Двойные записи и путаница",prob4_desc:"Один слот записали дважды. Клиент приехал — мастер занят. Скандал, возврат, плохой отзыв.",prob4_loss:"1 конфликт = −5 клиентов по сарафану",
+    info_label:"Принцип работы",info_title:"Как это решается?",
+    step1_t:"Подключение",step1_d:"Интегрируем ИИ-бота в ваши соцсети (Instagram, Telegram, WhatsApp) и связываем с CRM за 1–3 дня.",
+    step2_t:"Общение",step2_d:"Бот общается с клиентом как живой человек: консультирует по услугам, отвечает на вопросы и отрабатывает возражения.",
+    step3_t:"Запись и оплата",step3_d:"Система сама проверяет свободные окошки, записывает клиента и принимает предоплату — всё автоматически.",
+    feat_label:"Возможности",feat_title:"Что умеет система?",
+    f1_t:"ИИ без выходных",f1_d:"Работает 24/7, не болеет, не опаздывает, не забывает ответить клиенту.",
+    f2_t:"Умное расписание",f2_d:"Синхронизация с Google Calendar и любой CRM. Нет двойных записей.",
+    f3_t:"Онлайн-оплата",f3_d:"Клиент платит прямо в чате — LiqPay, Monobank, Stripe.",
+    f4_t:"Аналитика",f4_d:"Дашборд с конверсией, пропущенными и успешными записями в реальном времени.",
+    f5_t:"Напоминания",f5_d:"Автоматические напоминания клиентам за 24ч и 2ч до записи. Отмена и перенос — тоже авто.",
+    f6_t:"Мультиканальность",f6_d:"Instagram, Telegram, WhatsApp, Viber — один бот, все каналы одновременно.",
+    demo_label:"Живые примеры",demo_title:"От первого сообщения до записи",demo_desc:"Клиент просто пишет одно сообщение — бот вытягивает все данные, подтверждает и логирует.",
+    niche_label:"Подходит любому бизнесу",niche_title:"Один ИИ — любая ниша",
+    price_label:"Тарифы",price_title:"Просто. Прозрачно. ROI с первой недели.",
+    calc_label:"ROI-калькулятор",calc_title:"Посчитаем вашу выгоду прямо сейчас",
+    calc_loss_title:"💸 Сколько вы теряете без бота?",calc_check:"Средний чек (в местной валюте)",calc_missed:"Пропущенных клиентов в день",calc_loss_total:"Упущенная прибыль в месяц",
+    calc_cost_title:"⚡ Стоимость внедрения ИИ",calc_base:"Базовый ИИ-бот (обязательно)",calc_crm:"Интеграция с CRM / Календарем",calc_pay:"Модуль онлайн-оплаты",calc_custom:"Кастомная логика и промпты",calc_cost_total:"Примерная стоимость внедрения",
+    rev_label:"Отзывы клиентов",rev_title:"Что говорят владельцы бизнеса",
+    contact_label:"Связаться",contact_title:"Готовы автоматизировать ваш рост?",
+    contact_h3:"Получите расчёт окупаемости бесплатно",contact_p:"Расскажите о вашем бизнесе — мы посчитаем сколько вы теряете сейчас и когда окупится внедрение. Без давления и обязательств.",
+    form_submit:"Хочу расчёт окупаемости"
+  },
+  uk:{
+    nav_problem:"Проблема",nav_demo:"Демо",nav_niches:"Ніші",nav_pricing:"Ціни",nav_roi:"ROI",nav_connect:"Підключити",
+    urgency:"Кожен день без бота = гроші в смітник",
+    pain_hook:"Поки ви спите, відпочиваєте або зайняті — клієнти пишуть,<br>не отримують відповідь і йдуть до конкурента. <strong>Назавжди.</strong>",
+    h1_line1:"Ваш бізнес",h1_line2:"записує клієнтів",h1_line3:"поки ви не працюєте",
+    proof1:"Записів на місяць",proof2:"Втрат клієнтів",proof3:"Працює завжди",proof4:"До запуску",proof4_unit:"дні",
+    offer_title:"✦ Що ви отримуєте",
+    offer1:"<strong>ШІ-бот в Instagram, Telegram, WhatsApp</strong> <span>— відповідає як живий менеджер, без вихідних</span>",
+    offer2:"<strong>Автозапис з перевіркою розкладу</strong> <span>— клієнт обирає час, бот вносить у CRM сам</span>",
+    offer3:"<strong>Приймання передоплати прямо в чаті</strong> <span>— LiqPay, Monobank, Stripe. No-show падає до 2%</span>",
+    offer4:"<strong>Нагадування за 24год і 2год до візиту</strong> <span>— автоматично, без вашої участі</span>",
+    cta_main:"Хочу розрахунок окупності",cta_demo:"Дивитися демо →",
+    trust_line:"Вже використовують 50+ бізнесів в Україні",
+    prob_label:"Чому ви втрачаєте гроші прямо зараз",prob_title:"Знайомо?",
+    prob1_title:"Клієнт написав о 22:00",prob1_desc:"Ви побачили повідомлення вранці. Він вже записався до іншого. Це відбувається щодня.",prob1_loss:"−3 клієнти/день = −90 на місяць",
+    prob2_title:"Адміністратор витрачає 3год на переписку",prob2_desc:"Одні й ті ж питання: «Скільки коштує?», «Є в середу?» — по колу, щодня.",prob2_loss:"3год × 30 днів = 90 годин даремно",
+    prob3_title:"No-show вбиває розклад",prob3_desc:"Клієнт просто не прийшов. Слот порожній, час втрачено, гроші не отримані.",prob3_loss:"20% записів зривається без системи",
+    prob4_title:"Подвійні записи і плутанина",prob4_desc:"Один слот записали двічі. Клієнт приїхав — майстер зайнятий. Скандал, повернення, поганий відгук.",prob4_loss:"1 конфлікт = −5 клієнтів по сарафану",
+    info_label:"Принцип роботи",info_title:"Як це вирішується?",
+    step1_t:"Підключення",step1_d:"Інтегруємо ШІ-бота у ваші соцмережі (Instagram, Telegram, WhatsApp) та зв'язуємо з CRM за 1–3 дні.",
+    step2_t:"Спілкування",step2_d:"Бот спілкується з клієнтом як жива людина: консультує, відповідає на питання та знімає заперечення.",
+    step3_t:"Запис та оплата",step3_d:"Система сама перевіряє вільні вікна, записує клієнта та приймає передоплату — все автоматично.",
+    feat_label:"Можливості",feat_title:"Що вміє система?",
+    f1_t:"ШІ без вихідних",f1_d:"Працює 24/7, не хворіє, не спізнюється, не забуває відповісти клієнту.",
+    f2_t:"Розумний розклад",f2_d:"Синхронізація з Google Calendar та будь-якою CRM. Немає подвійних записів.",
+    f3_t:"Онлайн-оплата",f3_d:"Клієнт платить прямо в чаті — LiqPay, Monobank, Stripe.",
+    f4_t:"Аналітика",f4_d:"Дашборд з конверсією, пропущеними та успішними записами в реальному часі.",
+    f5_t:"Нагадування",f5_d:"Автоматичні нагадування клієнтам за 24год і 2год до запису. Відміна і перенесення — теж авто.",
+    f6_t:"Мультиканальність",f6_d:"Instagram, Telegram, WhatsApp, Viber — один бот, всі канали одночасно.",
+    demo_label:"Живі приклади",demo_title:"Від першого повідомлення до запису",demo_desc:"Клієнт просто пише одне повідомлення — бот витягує всі дані, підтверджує і логує.",
+    niche_label:"Підходить будь-якому бізнесу",niche_title:"Один ШІ — будь-яка ніша",
+    price_label:"Тарифи",price_title:"Просто. Прозоро. ROI з першого тижня.",
+    calc_label:"ROI-калькулятор",calc_title:"Порахуємо вашу вигоду прямо зараз",
+    calc_loss_title:"💸 Скільки ви втрачаєте без бота?",calc_check:"Середній чек (у місцевій валюті)",calc_missed:"Пропущених клієнтів на день",calc_loss_total:"Упущена вигода на місяць",
+    calc_cost_title:"⚡ Вартість впровадження ШІ",calc_base:"Базовий ШІ-бот (обов'язково)",calc_crm:"Інтеграція з CRM / Календарем",calc_pay:"Модуль онлайн-оплати",calc_custom:"Кастомна логіка та промпти",calc_cost_total:"Орієнтовна вартість впровадження",
+    rev_label:"Відгуки клієнтів",rev_title:"Що кажуть власники бізнесу",
+    contact_label:"Зв'язатися",contact_title:"Готові автоматизувати ваш ріст?",
+    contact_h3:"Отримайте розрахунок окупності безкоштовно",contact_p:"Розкажіть про ваш бізнес — ми порахуємо скільки ви втрачаєте зараз і коли окупиться впровадження. Без тиску і зобов'язань.",
+    form_submit:"Хочу розрахунок окупності"
+  },
+  en:{
+    nav_problem:"Problem",nav_demo:"Demo",nav_niches:"Niches",nav_pricing:"Pricing",nav_roi:"ROI",nav_connect:"Connect",
+    urgency:"Every day without a bot = money down the drain",
+    pain_hook:"While you sleep, rest, or stay busy — clients write,<br>get no reply, and go to your competitor. <strong>Forever.</strong>",
+    h1_line1:"Your business",h1_line2:"books clients",h1_line3:"while you're off the clock",
+    proof1:"More bookings/month",proof2:"Fewer lost clients",proof3:"Always on",proof4:"To launch",proof4_unit:"days",
+    offer_title:"✦ What you get",
+    offer1:"<strong>AI bot in Instagram, Telegram, WhatsApp</strong> <span>— replies like a live manager, 24/7</span>",
+    offer2:"<strong>Auto-booking with schedule check</strong> <span>— client picks a time, bot adds to CRM automatically</span>",
+    offer3:"<strong>Accept prepayment right in chat</strong> <span>— Stripe, PayPal. No-shows drop to 2%</span>",
+    offer4:"<strong>Reminders 24h and 2h before the visit</strong> <span>— fully automatic, no effort from you</span>",
+    cta_main:"I want an ROI calculation",cta_demo:"Watch demo →",
+    trust_line:"Already used by 50+ businesses in Ukraine",
+    prob_label:"Why you're losing money right now",prob_title:"Sound familiar?",
+    prob1_title:"Client messaged at 10 PM",prob1_desc:"You saw it in the morning. They already booked someone else. This happens every single day.",prob1_loss:"−3 clients/day = −90 per month",
+    prob2_title:"Admin spends 3hrs on messages",prob2_desc:"Same questions over and over: 'How much?', 'Any slots Wednesday?' — every day, in circles.",prob2_loss:"3hrs × 30 days = 90 hours wasted",
+    prob3_title:"No-shows kill your schedule",prob3_desc:"Client just didn't show. Slot empty, time lost, no revenue. Without reminders, this is the norm.",prob3_loss:"20% of bookings fail without a system",
+    prob4_title:"Double bookings and confusion",prob4_desc:"Same slot booked twice. Client arrives, master is busy. Scandal, refund, bad review.",prob4_loss:"1 conflict = −5 clients by word of mouth",
+    info_label:"How it works",info_title:"How is this solved?",
+    step1_t:"Integration",step1_d:"We connect the AI bot to your social networks (Instagram, Telegram, WhatsApp) and link it to your CRM in 1–3 days.",
+    step2_t:"Communication",step2_d:"The bot talks like a real person: advises on services, answers questions, and handles objections.",
+    step3_t:"Booking & Payment",step3_d:"The system checks free slots, books the client, and accepts prepayment — all automatically.",
+    feat_label:"Features",feat_title:"What can the system do?",
+    f1_t:"AI with no days off",f1_d:"Works 24/7, never sick, never late, never forgets to reply.",
+    f2_t:"Smart scheduling",f2_d:"Syncs with Google Calendar and any CRM. No double bookings.",
+    f3_t:"Online payment",f3_d:"Clients pay directly in the chat — Stripe, PayPal.",
+    f4_t:"Analytics",f4_d:"Real-time dashboard with conversion, missed, and successful bookings.",
+    f5_t:"Reminders",f5_d:"Automatic reminders to clients 24h and 2h before the appointment. Cancellations and reschedules — also auto.",
+    f6_t:"Multichannel",f6_d:"Instagram, Telegram, WhatsApp, Viber — one bot, all channels at once.",
+    demo_label:"Live examples",demo_title:"From first message to booking",demo_desc:"Client sends one message — the bot extracts all data, confirms, and logs it.",
+    niche_label:"Works for any business",niche_title:"One AI — any niche",
+    price_label:"Pricing",price_title:"Simple. Transparent. ROI from week one.",
+    calc_label:"ROI Calculator",calc_title:"Let's calculate your benefit right now",
+    calc_loss_title:"💸 How much are you losing without a bot?",calc_check:"Average check (local currency)",calc_missed:"Missed clients per day",calc_loss_total:"Lost profit per month",
+    calc_cost_title:"⚡ AI implementation cost",calc_base:"Basic AI bot (required)",calc_crm:"CRM / Calendar integration",calc_pay:"Online payment module",calc_custom:"Custom logic & prompts",calc_cost_total:"Estimated implementation cost",
+    rev_label:"Client reviews",rev_title:"What business owners say",
+    contact_label:"Contact",contact_title:"Ready to automate your growth?",
+    contact_h3:"Get a free ROI calculation",contact_p:"Tell us about your business — we'll calculate how much you're losing now and when the investment pays off. No pressure, no obligations.",
+    form_submit:"I want an ROI calculation"
+  }
+};
+
+document.getElementById('langSel').addEventListener('change',function(){
+  const l=this.value;
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    const k=el.dataset.lang;
+    if(T[l]&&T[l][k]!==undefined)el.innerHTML=T[l][k];
+  });
+  const lc=document.getElementById('lossCur');
+  if(lc)lc.textContent=l==='en'?'$':'₴';
+});
+</script>
+
+</body>
+</html>
