@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Booking AI | Автозапись клиентов 24/7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -14,7 +16,7 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none;}
+body{background:var(--bg);color:var(--text);font-family:'Syne',system-ui,-apple-system,sans-serif;overflow-x:hidden;cursor:none;}
 
 /* CURSOR */
 #cur{width:10px;height:10px;background:var(–c);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .15s,height .15s;}
@@ -267,12 +269,26 @@ nav ul{display:none;}nav{padding:13px 18px;}
 .form-row{grid-template-columns:1fr;}
 .calc-container{grid-template-columns:1fr;}
 .steps{grid-template-columns:1fr;}
-.proof-bar{flex-direction:column;}
-.proof-item{border-right:none;border-bottom:1px solid var(–border);}
-.proof-item:last-child{border-bottom:none;}
+.proof-bar{flex-direction:row;flex-wrap:wrap;}
+.proof-item{flex:1 1 45%;border-right:none;border-bottom:1px solid var(–border);}
+.proof-item:nth-child(odd){border-right:1px solid var(–border);}
+.proof-item:last-child,.proof-item:nth-last-child(2):nth-child(odd){border-bottom:none;}
 footer{flex-direction:column;gap:10px;text-align:center;padding:20px 18px;}
-.offer-box{padding:22px 20px;}
+.offer-box{padding:20px 16px;}
+#hero{padding:90px 16px 60px;}
 #hero h1{letter-spacing:-1.5px;}
+.features-grid{grid-template-columns:1fr 1fr;gap:10px;}
+.feat{padding:20px 16px;}
+.niches-grid{grid-template-columns:1fr;}
+.pricing-grid{grid-template-columns:1fr;}
+.reviews-grid{grid-template-columns:1fr;}
+.urgency-ribbon{font-size:.65rem;padding:8px 16px;text-align:center;}
+.hero-btns{flex-direction:column;width:100%;}
+.btn,.btn-ghost{width:100%;justify-content:center;}
+.trust-line{flex-wrap:wrap;gap:8px;}
+section{padding:80px 16px;}
+.s-title{margin-bottom:40px;}
+.problem-grid{grid-template-columns:1fr;}
 }
 </style>
 
